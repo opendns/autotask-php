@@ -1,8 +1,8 @@
 {
-    "name": "ereynolds/autotask-php",
+    "name": "opendns/autotask-php",
     "description": "A SOAP client wrapper for talking to Autotask's Web Service",
     "keywords": ["autotask", "soap", "msp", "psa"],
-    "homepage": "http://github.com/opendns",
+    "homepage": "http://github.com/opendns/autotask-php",
     "authors": [
         {
             "name": "Eric Reynolds",
