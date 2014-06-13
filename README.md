@@ -8,7 +8,7 @@ All objects that are exposed by Autotask have wrapper classes
 located in the `src/AutotaskObjects` folder.
 
 If you find any bugs, or have feature requests, please file
-an issue in [GitHub](https://github.com/opendns) or open a
+an issue in [GitHub](https://github.com/opendns/autotask-php) or open a
 pull request.
 
 #### This client is under _active development_, and therefore has no stable version.
@@ -37,7 +37,7 @@ you will have full access to the autotask-php client.
 
 ## Manual
 
-1. download the zip or clone the git repo from [GitHub](https://github.com/opendns)
+1. download the zip or clone the git repo from [GitHub](https://github.com/opendns/autotask-php)
 2. if necessary, extract the zip to your desired location
 3. add a ```require_once``` call to include `src/autoload.php`
    to get access to the Client.
