@@ -19,7 +19,7 @@ pull request.
 Ensure that composer is [installed on your machine](https://getcomposer.org/doc/00-intro.md).
 You will need to create a `composer.json` file in the root
 directory of your application.
-```
+```json
 {
     "require": {
         "opendns/autotask-php": "dev-master"
@@ -47,7 +47,7 @@ you will have full access to the autotask-php client.
 
 ## Fetch your zone WSDL
 
-```
+```php
 // This code is designed to find your exact wsdl location.
 // If you already know your zone's wsdl URL, you can skip
 // this step.
@@ -63,7 +63,7 @@ print_r($zoneInfo);
 
 
 ## Search Contacts
-```
+```php
 $authOpts = array(
     'login' => $username,
     'password' => $password,
@@ -94,7 +94,7 @@ queries that you may need to execute. A given query can have
 multiple `QueryField` objects and a given `QueryField` can
 have multple `QueryFieldExpression` objects.
 
-```
+```php
 $authOpts = array(
     'login' => $username,
     'password' => $password,
@@ -137,7 +137,7 @@ objects, as well as `QueryField` objects. The example below
 attempts to showcase the possibilities of using a
 `QueryCondition` object.
 
-```
+```php
 $authOpts = array(
     'login' => $username,
     'password' => $password,
@@ -210,7 +210,7 @@ print_r($client->query($query));
 Since the above example is so complex, we have included the
 "SQL Equivalent" conditional, and the XML that is produced by the
 Client.
-```
+```sql
 (
     firstname = 'Joe'
     OR (
@@ -221,7 +221,7 @@ Client.
 )
 AND city <> 'Albany'
 ```
-```
+```xml
 <queryxml>
    <entity>Contact</entity>
    <query>
