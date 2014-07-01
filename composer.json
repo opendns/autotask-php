@@ -3,6 +3,7 @@
     "description": "A SOAP client wrapper for talking to Autotask's Web Service",
     "keywords": ["autotask", "soap", "msp", "psa"],
     "homepage": "http://github.com/opendns/autotask-php",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Eric Reynolds",
