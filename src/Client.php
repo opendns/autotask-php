@@ -48,6 +48,8 @@ class Client extends \SoapClient
         'ContractServiceUnit'               => 'ATWS\AutotaskObjects\ContractServiceUnit',
         'ContractTicketPurchase'            => 'ATWS\AutotaskObjects\ContractTicketPurchase',
         'Country'                           => 'ATWS\AutotaskObjects\Country',
+        'CreateAttachment'                  => 'ATWS\AutotaskObjects\CreateAttachment',
+        'CreateAttachmentResponse'          => 'ATWS\AutotaskObjects\CreateAttachmentResponse',
         'createResponse'                    => 'ATWS\AutotaskObjects\CreateResponse',
         'deleteResponse'                    => 'ATWS\AutotaskObjects\DeleteResponse',
         'Department'                        => 'ATWS\AutotaskObjects\Department',
@@ -152,6 +154,12 @@ class Client extends \SoapClient
         return $this->_call('delete', array($params));
     }
 
+    public function CreateAttachment(AutotaskObjects\Entity $obj)
+    {
+        $params = new AutotaskObjects\CreateAttachment($obj);
+        return $this->_call('CreateAttachment', array($params));
+    }
+
     public function query(AutotaskObjects\Query $obj)
     {
         $obj->asXml();
@@ -178,6 +186,11 @@ class Client extends \SoapClient
     public function getThresholdAndUsageInfo()
     {
         return $this->_call('getThresholdAndUsageInfo');
+    }
+
+    public function __doRequest($request, $location, $action, $version, $one_way = 0)
+    {
+        return parent::__doRequest($request, $location, $action, $version, $one_way);
     }
 
     private function _call($method, $params = array())
