@@ -5,7 +5,8 @@ class CreateAttachment
 {
     public $attachment;
 
-    public function __construct($param) {
+    public function __construct($param)
+    {
         $this->attachment = $param;
     }
 }
