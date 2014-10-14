@@ -1,6 +1,7 @@
 <?php
 namespace ATWS\AutotaskObjects;
 
-class CreateAttachmentResponse {
+class CreateAttachmentResponse
+{
     public $CreateAttachmentResult;
 }
