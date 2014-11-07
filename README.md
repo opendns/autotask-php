@@ -110,13 +110,13 @@ $query = new ATWS\AutotaskObjects\Query('Contact');
 // Add a QueryField with multiple expressions
 $firstnameField = new ATWS\AutotaskObjects\QueryField('firstname');
 // Multiple Expressions in a single Field results in a logical OR
-$firstnameField->addExpression('StartsWith', 'S');
+$firstnameField->addExpression('BeginsWith', 'S');
 $firstnameField->addExpression('Contains', 'e');
 
 $query->addField($firstnameField);
 
 $lastnameField = new ATWS\AutotaskObjects\QueryField('lastname');
-$lastnameField->addExpression('StartsWith', 'M');
+$lastnameField->addExpression('BeginsWith', 'M');
 
 // Add a second QueryField -- multiple Fields are ANDed together
 $query->addField($lastnameField);
