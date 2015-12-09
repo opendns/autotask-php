@@ -8,4 +8,5 @@ class ATWSZoneInfo
     public $DataBaseType;
     public $ErrorCode;
     public $URL;
+    public $WebUrl;
 }

@@ -1,3 +1,11 @@
+0.1.5
+=====
+:release-date: 2015-12-09
+:release-by: OpenDNS
+
+* Adding the ability to query for User Defined Fields
+* Added a working example for querying User Defined Fields
+
 0.1.4
 =====
 :release-date: 2014-11-07
