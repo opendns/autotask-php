@@ -6,9 +6,10 @@ class QueryField
     public $name;
     public $expressions;
 
-    public function __construct($name)
+    public function __construct($name, $isUDF = false)
     {
         $this->name = $name;
+        $this->isUDF = $isUDF;
         $this->expressions = array();
     }
 
@@ -26,6 +27,10 @@ class QueryField
             $str .= $e->asXml();
         }
 
-        return "<field>{$this->name}{$str}</field>";
+        if ($this->isUDF) {
+            return "<field udf=\"true\">{$this->name}{$str}</field>";
+        } else {
+            return "<field>{$this->name}{$str}</field>";
+        }
     }
 }
