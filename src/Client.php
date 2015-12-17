@@ -193,9 +193,44 @@ class Client extends \SoapClient
         return parent::__doRequest($request, $location, $action, $version, $one_way);
     }
 
+    public function validCredentials($username, $password){
+        //get the zone for the user
+        $zoneInfo = $this->getZoneInfo($username);
+
+        if($zoneInfo->getZoneInfoResult->ErrorCode == 0) {
+            $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
+
+            //update client with new zone and credentials
+            $authOpts = array(
+                'login' => $username,
+                'password' => $password,
+                'trace' => 1,
+            );
+            parent::__construct($wsdl, $authOpts);
+
+            //run getFieldInfo query and check result
+            if(is_soap_fault($this->getFieldInfo('Ticket'))){
+                //credentials incorrect
+                return false;
+            } else {
+                //valid credentials
+                return true;
+            }
+
+        } else {
+            //username incorrect
+            return false;
+        }
+
+    }
+
     private function _call($method, $params = array())
     {
-        return $this->__soapCall($method, $params);
+        try {
+            return $this->__soapCall($method, $params);
+        } catch(\SoapFault $e){
+            return $e;
+        }
     }
     // @codeCoerageIgnoreEnd
 }
