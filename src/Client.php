@@ -148,6 +148,16 @@ class Client extends \SoapClient
         return $this->_call('update', array($params));
     }
 
+    public function bulkUpdate(array $objs)
+    {
+        $updateObjs = array();
+        foreach ($objs as $obj) {
+            $updateObjs[] = new AutotaskObjects\UpdateParam($obj);
+        }
+
+        return $this->_call('update', $updateObjs);
+    }
+
     public function delete(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\DeleteParam($obj);
