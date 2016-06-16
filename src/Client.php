@@ -141,6 +141,16 @@ class Client extends \SoapClient
         $params = new AutotaskObjects\CreateParam($obj);
         return $this->_call('create', array($params));
     }
+    
+    public function bulkCreate(array $objs)
+    {
+        $createObjs;
+        foreach ($objs as $obj) {
+           if (!$createObjs) $createObjs = new AutotaskObjects\CreateParam($obj);
+           else $createObjs->Entities[] = $obj;
+        }
+        return $this->_call('create', array($createObjs));
+    }    
 
     public function update(AutotaskObjects\Entity $obj)
     {
