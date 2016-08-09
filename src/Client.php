@@ -144,10 +144,17 @@ class Client extends \SoapClient
     
     public function bulkCreate(array $objs)
     {
-        $createObjs;
+        if (count($objs) > 200) {
+            throw new \Exception('You can only execute a bulk create on a max of 200 objects per request');
+        }
+        $createObjs = null;
         foreach ($objs as $obj) {
-           if (!$createObjs) $createObjs = new AutotaskObjects\CreateParam($obj);
-           else $createObjs->Entities[] = $obj;
+            if (!$createObjs){
+               $createObjs = new AutotaskObjects\CreateParam($obj);
+            } 
+            else {
+               $createObjs->Entities[] = $obj;
+            }
         }
         return $this->_call('create', array($createObjs));
     }    
@@ -157,21 +164,36 @@ class Client extends \SoapClient
         $params = new AutotaskObjects\UpdateParam($obj);
         return $this->_call('update', array($params));
     }
-
-    public function bulkUpdate(array $objs)
-    {
+    
+    public function bulkUpdate(array $objs) {
+	if (count($objs) > 200) {
+            throw new \Exception('You can only execute a bulk update on a max of 200 objects per request');
+        }
         $updateObjs = null;
         $calls = array();
         foreach ($objs as $obj) {
-            if (!$updateObjs) $updateObjs = new AutotaskObjects\UpdateParam($obj);
-            else $updateObjs->Entities[] = $obj;
-            if (count($updateObjs->Entities) == 200) {
-                $calls[] = $this->_call('update', array($updateObjs));
-                $updateObjs = null;
+            if (!$updateObjs) {
+                $updateObjs = new AutotaskObjects\UpdateParam($obj);
+            }
+            else {
+                $updateObjs->Entities[] = $obj;
             }
         }
-        $calls[] = $this->_call('update', array($updateObjs));     
-        return $calls;
+        return $this->_call('update', array($updateObjs));
+    }
+    
+    public function bulkUpdateUnlimited(array $objs) {
+	$subObjs = array();
+	$calls = array();
+	foreach ($objs as $obj) {
+            if (count($subObjs) == 200) {
+                $calls[] = $this->bulkUpdate($subObjs);
+                $subObjs = array();
+            }
+            $subObjs[] = $obj;
+	}
+	$calls[] = $this->bulkUpdate($subObjs);
+	return $calls;
     }
 
     public function delete(AutotaskObjects\Entity $obj)
