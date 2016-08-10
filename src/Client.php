@@ -141,21 +141,44 @@ class Client extends \SoapClient
         $params = new AutotaskObjects\CreateParam($obj);
         return $this->_call('create', array($params));
     }
+    
+    public function bulkCreate(array $objs)
+    {
+        if (count($objs) > 200) {
+            throw new \Exception('You can only execute a bulk create on a max of 200 objects per request');
+        }
+        $createObjs = null;
+        foreach ($objs as $obj) {
+            if (!$createObjs){
+               $createObjs = new AutotaskObjects\CreateParam($obj);
+            } else {
+               $createObjs->Entities[] = $obj;
+            }
+        }
+        return $this->_call('create', array($createObjs));
+    }    
 
     public function update(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\UpdateParam($obj);
         return $this->_call('update', array($params));
     }
-
-    public function bulkUpdate(array $objs)
+    
+    public function bulkUpdate(array $objs) 
     {
-        $updateObjs = array();
-        foreach ($objs as $obj) {
-            $updateObjs[] = new AutotaskObjects\UpdateParam($obj);
+        if (count($objs) > 200) {
+            throw new \Exception('You can only execute a bulk update on a max of 200 objects per request');
         }
-
-        return $this->_call('update', $updateObjs);
+        $updateObjs = null;
+        $calls = array();
+        foreach ($objs as $obj) {
+            if (!$updateObjs) {
+                $updateObjs = new AutotaskObjects\UpdateParam($obj);
+            } else {
+                $updateObjs->Entities[] = $obj;
+            }
+        }
+        return $this->_call('update', array($updateObjs));
     }
 
     public function delete(AutotaskObjects\Entity $obj)
