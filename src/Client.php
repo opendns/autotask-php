@@ -187,6 +187,23 @@ class Client extends \SoapClient
         return $this->_call('delete', array($params));
     }
 
+    public function bulkDelete(array $objs)
+    {
+        if (count($objs) > 200) {
+            throw new \Exception('You can only execute a bulk delete on a max of 200 objects per request');
+        }
+        $deleteObjs = null;
+        $calls = array();
+        foreach ($objs as $obj) {
+            if (!$deleteObjs) {
+                $deleteObjs = new AutotaskObjects\DeleteParam($obj);
+            } else {
+                $deleteObjs->Entities[] = $obj;
+            }
+        }
+        return $this->_call('delete', array($deleteObjs));
+    }
+
     public function CreateAttachment(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\CreateAttachment($obj);
