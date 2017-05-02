@@ -70,6 +70,7 @@ class Client extends \SoapClient
         'InventoryLocation'                 => 'ATWS\AutotaskObjects\InventoryLocation',
         'InventoryTransfer'                 => 'ATWS\AutotaskObjects\InventoryTransfer',
         'Invoice'                           => 'ATWS\AutotaskObjects\Invoice',
+        'InvoiceMarkup'                     => 'ATWS\AutotaskObjects\InvoiceMarkup',
         'InvoiceTemplate'                   => 'ATWS\AutotaskObjects\InvoiceTemplate',
         'Opportunity'                       => 'ATWS\AutotaskObjects\Opportunity',
         'PaymentTerm'                       => 'ATWS\AutotaskObjects\PaymentTerm',
@@ -237,6 +238,14 @@ class Client extends \SoapClient
     {
         return $this->_call('getThresholdAndUsageInfo');
     }
+    
+    public function getInvoiceMarkup($invoiceId, $type)
+    {
+        $invoiceMarkup = new AutotaskObjects\InvoiceMarkup();
+        $invoiceMarkup->InvoiceId = (int)$invoiceId;
+        $invoiceMarkup->Format = $type;
+        return $this->_call('GetInvoiceMarkup', array($invoiceMarkup));
+    }
 
     public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
@@ -246,13 +255,6 @@ class Client extends \SoapClient
     private function _call($method, $params = array())
     {
         return $this->__soapCall($method, $params);
-    }
-        public function getInvoiceMarkup($invoiceId, $type)
-    {
-       $obj = new AutotaskObjects\InvoiceMarkup;
-        $obj->InvoiceId = (int)$invoiceId;
-        $obj->Format = $type;
-        return $this->_call('GetInvoiceMarkup', array($obj));
     }
     // @codeCoerageIgnoreEnd
 }
