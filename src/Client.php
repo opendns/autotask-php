@@ -247,5 +247,12 @@ class Client extends \SoapClient
     {
         return $this->__soapCall($method, $params);
     }
+        public function getInvoiceMarkup($invoiceId, $type)
+    {
+       $obj = new AutotaskObjects\InvoiceMarkup;
+        $obj->InvoiceId = (int)$invoiceId;
+        $obj->Format = $type;
+        return $this->_call('GetInvoiceMarkup', array($obj));
+    }
     // @codeCoerageIgnoreEnd
 }
