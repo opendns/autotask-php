@@ -61,6 +61,8 @@ class Client extends \SoapClient
         'ExpenseItem'                       => 'ATWS\AutotaskObjects\ExpenseItem',
         'ExpenseReport'                     => 'ATWS\AutotaskObjects\ExpenseReport',
         'Field'                             => 'ATWS\AutotaskObjects\Field',
+        'GetAttachment'                     => 'ATWS\AutotaskObjects\GetAttachment',
+        'GetAttachmentResponse'             => 'ATWS\AutotaskObjects\GetAttachmentResponse',
         'getUDFInfo'                        => 'ATWS\AutotaskObjects\UDFParam',
         'getUDFInfoResponse'                => 'ATWS\AutotaskObjects\UDFInfoResponse',
         'InstalledProduct'                  => 'ATWS\AutotaskObjects\InstalledProduct',
@@ -203,6 +205,12 @@ class Client extends \SoapClient
             }
         }
         return $this->_call('delete', array($deleteObjs));
+    }
+
+    public function GetAttachment(AutotaskObjects\Entity $obj)
+    {
+        $params = new AutotaskObjects\GetAttachment($obj);
+        return $this->_call('GetAttachment', array($params));
     }
 
     public function CreateAttachment(AutotaskObjects\Entity $obj)
