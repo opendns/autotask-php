@@ -13,7 +13,6 @@ class InvoiceTemplate extends Entity
     public $DisplayTaxCategorySuperscripts;
     public $DisplayZeroAmountRecurringServicesAndBundles;
     public $GroupBy;
-    public $Id;
     public $ItemizeItemsInEachGroup;
     public $ItemizeServicesAndBundles;
     public $Name;
