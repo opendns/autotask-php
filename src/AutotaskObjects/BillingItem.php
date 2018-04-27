@@ -3,7 +3,14 @@ namespace ATWS\AutotaskObjects;
 
 class BillingItem extends Entity
 {
+    // Required
+    public $NonBillable;
+    public $SubType;
+    public $VendorID;
+
+    // Optional
     public $AccountID;
+    public $AccountManagerWhenApprovedID;
     public $AllocationCodeID;
     public $ApprovedTime;
     public $ContractCostID;
@@ -11,6 +18,11 @@ class BillingItem extends Entity
     public $Description;
     public $ExpenseItemID;
     public $ExtendedPrice;
+    public $InstalledProductID;
+    public $InternalCurrencyExtendedPrice;
+    public $InternalCurrencyRate;
+    public $InternalCurrencyTaxDollars;
+    public $InternalCurrencyTotalAmount;
     public $InvoiceID;
     public $ItemApproverID;
     public $ItemDate;
@@ -19,7 +31,6 @@ class BillingItem extends Entity
     public $LineItemGroupDescription;
     public $LineItemID;
     public $MilestoneID;
-    public $NonBillable;
     public $OurCost;
     public $ProjectCostID;
     public $ProjectID;
@@ -29,7 +40,6 @@ class BillingItem extends Entity
     public $RoleID;
     public $ServiceBundleID;
     public $ServiceID;
-    public $SubType;
     public $TaskID;
     public $TaxDollars;
     public $TicketCostID;
@@ -37,6 +47,5 @@ class BillingItem extends Entity
     public $TimeEntryID;
     public $TotalAmount;
     public $Type;
-    public $VendorID;
     public $WebServiceDate;
 }

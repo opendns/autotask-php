@@ -3,28 +3,38 @@ namespace ATWS\AutotaskObjects;
 
 class Quote extends Entity
 {
-    public $AccountID;
+    // Required
     public $BillToLocationID;
+    public $EffectiveDate;
+    public $ExpirationDate;
+    public $Name;
+    public $OpportunityID;
+
+    // Optional
+    public $AccountID;
     public $CalculateTaxSeparately;
     public $Comment;
     public $ContactID;
     public $CreateDate;
     public $CreatorResourceID;
     public $Description;
-    public $EffectiveDate;
-    public $ExpirationDate;
+    public $eQuoteActive;
     public $ExternalQuoteNumber;
+    public $GroupByID;
     public $GroupByProductCategory;
-    public $Name;
-    public $OpportunityID;
+    public $LastActivityDate;
+    public $LastModifiedBy;
     public $PaymentTerm;
     public $PaymentType;
+    public $PrimaryQuote;
     public $ProposalProjectID;
     public $PurchaseOrderNumber;
-    public $ShipToLocationID;
+    public $QuoteNumber;
+    public $QuoteTemplateID;
     public $ShippingType;
+    public $ShipToLocationID;
     public $ShowEachTaxInGroup;
+    public $ShowTaxCategory;
     public $SoldToLocationID;
     public $TaxGroup;
-    public $eQuoteActive;
 }

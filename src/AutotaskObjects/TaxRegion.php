@@ -3,6 +3,9 @@ namespace ATWS\AutotaskObjects;
 
 class TaxRegion extends Entity
 {
-    public $Active;
+    // Required
     public $Name;
+
+    // Optional
+    public $Active;
 }

@@ -3,9 +3,12 @@ namespace ATWS\AutotaskObjects;
 
 class PurchaseOrderReceive extends Entity
 {
+    // Required
     public $PurchaseOrderItemID;
-    public $QuantityBackOrdered;
     public $QuantityNowReceiving;
+
+    // Optional
+    public $QuantityBackOrdered;
     public $QuantityPreviouslyReceived;
     public $ReceiveDate;
     public $ReceivedByResourceID;

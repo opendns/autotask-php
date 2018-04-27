@@ -3,13 +3,16 @@ namespace ATWS\AutotaskObjects;
 
 class ContractServiceUnit extends Entity
 {
-    public $ApproveAndPostDate;
+    // Required
     public $ContractID;
-    public $Cost;
     public $EndDate;
-    public $Price;
     public $ServiceID;
     public $StartDate;
     public $Units;
+
+    // Optional
+    public $ApproveAndPostDate;
+    public $Cost;
+    public $InternalCurrencyPrice;
+    public $Price;
     public $VendorAccountID;
-}

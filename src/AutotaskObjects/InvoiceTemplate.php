@@ -3,8 +3,7 @@ namespace ATWS\AutotaskObjects;
 
 class InvoiceTemplate extends Entity
 {
-    public $CoveredByBlockRetainerContractLabel;
-    public $CoveredByRecurringServiceFixedPricePerTicketContractLabel;
+    // Required
     public $DateFormat;
     public $DisplayFixedPriceContractLabor;
     public $DisplayRecurringServiceContractLabor;
@@ -21,7 +20,16 @@ class InvoiceTemplate extends Entity
     public $PageLayout;
     public $PageNumberFormat;
     public $PaymentTerms;
-    public $RateCostExpression;
+    public $ShowGridHeader;
+    public $ShowVerticalGridLines;
     public $SortBy;
     public $TimeFormat;
+
+    // Optional
+    public $CoveredByBlockRetainerContractLabel;
+    public $CoveredByRecurringServiceFixedPricePerTicketContractLabel;
+    public $CurrencyNegativeFormat;
+    public $CurrencyPositiveFormat;
+    public $DateFormat;
+    public $RateCostExpression;
 }

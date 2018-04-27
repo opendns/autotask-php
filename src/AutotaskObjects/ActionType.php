@@ -3,8 +3,11 @@ namespace ATWS\AutotaskObjects;
 
 class ActionType extends Entity
 {
+    // Required
     public $Active;
     public $Name;
-    public $SystemActionType;
     public $View;
+
+    // Optional
+    public $SystemActionType;
 }

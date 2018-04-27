@@ -3,12 +3,15 @@ namespace ATWS\AutotaskObjects;
 
 class Appointment extends Entity
 {
-    public $CreateDateTime;
-    public $CreatorResourceID;
-    public $Description;
+    // Required
     public $EndDateTime;
     public $ResourceID;
     public $StartDateTime;
     public $Title;
+
+    // Optional
+    public $CreateDateTime;
+    public $CreatorResourceID;
+    public $Description;
     public $UpdateDateTime;
 }

@@ -3,7 +3,16 @@ namespace ATWS\AutotaskObjects;
 
 class SalesOrder extends Entity
 {
+    // Required
     public $AccountID;
+    public $Contact;
+    public $OpportunityID;
+    public $OwnerResourceID;
+    public $SalesOrderDate;
+    public $Status;
+    public $Title;
+
+    // Optional
     public $AdditionalBillToAddressInformation;
     public $AdditionalShipToAddressInformation;
     public $BillToAddress1;
@@ -13,11 +22,7 @@ class SalesOrder extends Entity
     public $BillToCountryID;
     public $BillToPostalCode;
     public $BillToState;
-    public $Contact;
-    public $OpportunityID;
-    public $OwnerResourceID;
     public $PromisedDueDate;
-    public $SalesOrderDate;
     public $ShipToAddress1;
     public $ShipToAddress2;
     public $ShipToCity;
@@ -25,6 +30,4 @@ class SalesOrder extends Entity
     public $ShipToCountryID;
     public $ShipToPostalCode;
     public $ShipToState;
-    public $Status;
-    public $Title;
 }

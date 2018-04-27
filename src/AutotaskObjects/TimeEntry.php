@@ -3,6 +3,13 @@ namespace ATWS\AutotaskObjects;
 
 class TimeEntry extends Entity
 {
+    // Required
+    public $DateWorked;
+    public $ResourceID;
+    public $RoleID;
+    public $Type;
+
+    // Optional
     public $AllocationCodeID;
     public $BillingApprovalDateTime;
     public $BillingApprovalLevelMostRecent;
@@ -12,7 +19,6 @@ class TimeEntry extends Entity
     public $ContractServiceID;
     public $CreateDateTime;
     public $CreatorUserID;
-    public $DateWorked;
     public $EndDateTime;
     public $HoursToBill;
     public $HoursWorked;
@@ -22,12 +28,9 @@ class TimeEntry extends Entity
     public $LastModifiedUserID;
     public $NonBillable;
     public $OffsetHours;
-    public $ResourceID;
-    public $RoleID;
     public $ShowOnInvoice;
     public $StartDateTime;
     public $SummaryNotes;
     public $TaskID;
     public $TicketID;
-    public $Type;
 }

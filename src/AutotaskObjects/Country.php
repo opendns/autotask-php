@@ -3,10 +3,15 @@ namespace ATWS\AutotaskObjects;
 
 class Country extends Entity
 {
-    public $Active;
+    // Required
     public $AddressFormatID;
-    public $CountryCode;
     public $DisplayName;
+
+    // Optional
+    public $Active;
+    public $CountryCode;
+    public $InvoiceTemplateID;
     public $IsDefaultCountry;
     public $Name;
+    public $QuoteTemplateID;
 }

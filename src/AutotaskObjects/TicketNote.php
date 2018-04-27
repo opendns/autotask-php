@@ -3,11 +3,14 @@ namespace ATWS\AutotaskObjects;
 
 class TicketNote extends Entity
 {
-    public $CreatorResourceID;
+    // Required
     public $Description;
-    public $LastActivityDate;
     public $NoteType;
     public $Publish;
     public $TicketID;
     public $Title;
+
+    // Optional
+    public $CreatorResourceID;
+    public $LastActivityDate;
 }

@@ -3,9 +3,16 @@ namespace ATWS\AutotaskObjects;
 
 class ContractServiceBundle extends Entity
 {
-    public $AdjustedPrice;
+    // Required
     public $ContractID;
-    public $InvoiceDescription;
+    public $QuoteItemID;
     public $ServiceBundleID;
+
+    // Optional
+    public $AdjustedPrice;
+    public $InternalCurrencyAdjustedPrice;
+    public $InternalCurrencyUnitPrice;
+    public $InternalDescription;
+    public $InvoiceDescription;
     public $UnitPrice;
 }
