@@ -3,7 +3,14 @@ namespace ATWS\AutotaskObjects;
 
 class Project extends Entity
 {
+    // Required
     public $AccountID;
+    public $EndDateTime;
+    public $ProjectName;
+    public $StartDateTime;
+    public $Type;
+
+    // Optional
     public $ActualBilledHours;
     public $ActualHours;
     public $ChangeOrdersBudget;
@@ -17,7 +24,6 @@ class Project extends Entity
     public $Department;
     public $Description;
     public $Duration;
-    public $EndDateTime;
     public $EstimatedSalesCost;
     public $EstimatedTime;
     public $ExtPNumber;
@@ -31,13 +37,10 @@ class Project extends Entity
     public $ProjectCostsBudget;
     public $ProjectCostsRevenue;
     public $ProjectLeadResourceID;
-    public $ProjectName;
     public $ProjectNumber;
     public $PurchaseOrderNumber;
     public $SGDA;
-    public $StartDateTime;
     public $Status;
     public $StatusDateTime;
     public $StatusDetail;
-    public $Type;
 }

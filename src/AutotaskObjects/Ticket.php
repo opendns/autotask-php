@@ -3,7 +3,15 @@ namespace ATWS\AutotaskObjects;
 
 class Ticket extends Entity
 {
+    // Required
     public $AccountID;
+    public $DueDateTime;
+    public $Priority;
+    public $Status;
+    public $Title;
+
+    // Optional
+    public $AEMAlertID;
     public $AllocationCodeID;
     public $AssignedResourceID;
     public $AssignedResourceRoleID;
@@ -23,18 +31,23 @@ class Ticket extends Entity
     public $CreateDate;
     public $CreatorResourceID;
     public $Description;
-    public $DueDateTime;
     public $EstimatedHours;
+    public $ExternalID;
+    public $FirstResponseAssignedResourceID;
     public $FirstResponseDateTime;
     public $FirstResponseDueDateTime;
+    public $FirstResponseInitiatingResourceID;
+    public $HoursToBeScheduled;
     public $InstalledProductID;
     public $IssueType;
     public $LastActivityDate;
     public $LastCustomerNotificationDateTime;
     public $LastCustomerVisibleActivityDateTime;
+    public $MonitorID;
+    public $MonitorTypeID;
     public $OpportunityId;
-    public $Priority;
     public $ProblemTicketId;
+    public $ProjectID;
     public $PurchaseOrderNumber;
     public $QueueID;
     public $Resolution;
@@ -45,9 +58,8 @@ class Ticket extends Entity
     public $ServiceLevelAgreementHasBeenMet;
     public $ServiceLevelAgreementID;
     public $Source;
-    public $Status;
     public $SubIssueType;
+    public $TicketCategory;
     public $TicketNumber;
     public $TicketType;
-    public $Title;
 }

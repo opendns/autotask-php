@@ -3,7 +3,10 @@ namespace ATWS\AutotaskObjects;
 
 class TaskPredecessor extends Entity
 {
-    public $LagDays;
+    // Required
     public $PredecessorTaskID;
     public $SuccessorTaskID;
+
+    // Optional
+    public $LagDays;
 }

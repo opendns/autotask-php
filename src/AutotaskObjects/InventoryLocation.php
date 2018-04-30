@@ -3,8 +3,11 @@ namespace ATWS\AutotaskObjects;
 
 class InventoryLocation extends Entity
 {
+    // Required
     public $Active;
-    public $IsDefault;
     public $LocationName;
+
+    // Optional
+    public $IsDefault;
     public $ResourceID;
 }

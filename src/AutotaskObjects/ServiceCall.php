@@ -3,12 +3,20 @@ namespace ATWS\AutotaskObjects;
 
 class ServiceCall extends Entity
 {
+    // Required
     public $AccountID;
+    public $EndDateTime;
+    public $StartDateTime;
+
+    // Optional
+    public $CancelationNoticeHours;
+    public $CanceledByResource;
+    public $CanceledDateTime;
     public $Complete;
     public $CreateDateTime;
     public $CreatorResourceID;
     public $Description;
-    public $EndDateTime;
+    public $Duration;
     public $LastModifiedDateTime;
-    public $StartDateTime;
+    public $Status;
 }

@@ -14,9 +14,13 @@ class AllocationCode extends Entity
     public $Description;
     public $ExternalNumber;
     public $GeneralLedgerCode;
+    public $IsExcludedFromNewContracts;
+    public $MarkupRate;
     public $Name;
     public $Taxable;
     public $TaxCategoryID;
     public $Type;
+    public $UnitCost;
+    public $UnitPrice;
     public $UseType;
 }

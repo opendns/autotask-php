@@ -3,8 +3,11 @@ namespace ATWS\AutotaskObjects;
 
 class Department extends Entity
 {
-    public $Description;
+    // Required
     public $Name;
-    public $Number;
     public $PrimaryLocationID;
+
+    // Optional
+    public $Description;
+    public $Number;
 }

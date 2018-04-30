@@ -3,6 +3,10 @@ namespace ATWS\AutotaskObjects;
 
 class Invoice extends Entity
 {
+    // Required
+    public $InvoiceDateTime;
+
+    // Optional
     public $AccountID;
     public $BatchID;
     public $Comments;

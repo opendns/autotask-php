@@ -3,15 +3,18 @@ namespace ATWS\AutotaskObjects;
 
 class InventoryItem extends Entity
 {
-    public $BackOrder;
-    public $Bin;
+    // Required
     public $InventoryLocationID;
-    public $OnOrder;
-    public $Picked;
     public $ProductID;
     public $QuantityMaximum;
     public $QuantityMinimum;
     public $QuantityOnHand;
+
+    // Optional
+    public $BackOrder;
+    public $Bin;
+    public $OnOrder;
+    public $Picked;
     public $ReferenceNumber;
     public $Reserved;
 }

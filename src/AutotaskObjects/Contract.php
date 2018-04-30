@@ -3,29 +3,36 @@ namespace ATWS\AutotaskObjects;
 
 class Contract extends Entity
 {
+    // Required
     public $AccountID;
     public $BillingPreference;
+    public $ContractName;
+    public $ContractType;
+    public $EndDate;
+    public $StartDate;
+    public $Status;
+    public $TimeReportingRequiresStartAndStopTimes;
+
+
+    // Optional
     public $Compliance;
+    public $ContactID;
     public $ContactName;
     public $ContractCategory;
-    public $ContractName;
     public $ContractNumber;
     public $ContractPeriodType;
-    public $ContractType;
     public $Description;
-    public $EndDate;
     public $EstimatedCost;
     public $EstimatedHours;
     public $EstimatedRevenue;
+    public $ExclusionContractID;
+    public $InternalCurrencyOverageBillingRate;
+    public $InternalCurrencySetupFee;
     public $IsDefaultContract;
     public $OpportunityID;
     public $OverageBillingRate;
     public $PurchaseOrderNumber;
-    public $RenewedContractID;
     public $ServiceLevelAgreementID;
     public $SetupFee;
     public $SetupFeeAllocationCodeID;
-    public $StartDate;
-    public $Status;
-    public $TimeReportingRequiresStartAndStopTimes;
 }

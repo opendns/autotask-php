@@ -3,6 +3,16 @@ namespace ATWS\AutotaskObjects;
 
 class PurchaseOrder extends Entity
 {
+    // Required
+    public $ShipToAddress1;
+    public $ShipToCity;
+    public $ShipToName;
+    public $ShipToPostalCode;
+    public $ShipToState;
+    public $Status;
+    public $VendorID;
+
+    // Optional
     public $CancelDateTime;
     public $CreateDateTime;
     public $CreatorResourceID;
@@ -10,20 +20,17 @@ class PurchaseOrder extends Entity
     public $Fax;
     public $Freight;
     public $GeneralMemo;
+    public $LatestEstimatedArrivalDate;
     public $PaymentTerm;
     public $Phone;
     public $PurchaseForAccountID;
-    public $ShipToAddress1;
-    public $ShipToAddress2;
-    public $ShipToCity;
-    public $ShipToName;
-    public $ShipToPostalCode;
-    public $ShipToState;
     public $ShippingDate;
     public $ShippingType;
-    public $Status;
+    public $ShipToAddress2;
+    public $ShowEachTaxInGroup;
+    public $ShowTaxCategory;
     public $SubmitDateTime;
     public $TaxGroup;
-    public $VendorID;
+    public $UseItemDescriptionsFrom;
     public $VendorInvoiceNumber;
 }

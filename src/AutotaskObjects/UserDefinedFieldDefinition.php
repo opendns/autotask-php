@@ -4,9 +4,9 @@ namespace ATWS\AutotaskObjects;
 class UserDefinedFieldDefinition extends Entity
 {
     // Required
+    public $DataType;
     public $Name;
     public $UdfType;
-    public $DataType;
 
     // Optional
     public $CreateDate;
@@ -15,9 +15,11 @@ class UserDefinedFieldDefinition extends Entity
     public $DefaultValue;
     public $DisplayFormat;
     public $IsActive;
+    public $IsEncrypted;
     public $IsFieldMapping;
     public $IsProtected;
     public $IsRequired;
+    public $IsVisibleToClientPortal;
     public $MergeVariableName;
     public $NumberOfDecimalPlaces;
     public $SortOrder;

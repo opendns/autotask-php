@@ -3,8 +3,12 @@ namespace ATWS\AutotaskObjects;
 
 class ResourceRole extends Entity
 {
-    public $DepartmentID;
-    public $QueueID;
+    // Required
     public $ResourceID;
     public $RoleID;
+
+    // Optional
+    public $Active;
+    public $DepartmentID;
+    public $QueueID;
 }

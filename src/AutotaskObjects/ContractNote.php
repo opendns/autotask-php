@@ -3,9 +3,12 @@ namespace ATWS\AutotaskObjects;
 
 class ContractNote extends Entity
 {
+    // Required
     public $ContractID;
-    public $CreatorResourceID;
     public $Description;
-    public $LastActivityDate;
     public $Title;
+
+    // Optional
+    public $CreatorResourceID;
+    public $LastActivityDate;
 }

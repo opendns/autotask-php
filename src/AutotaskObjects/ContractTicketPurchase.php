@@ -3,16 +3,19 @@ namespace ATWS\AutotaskObjects;
 
 class ContractTicketPurchase extends Entity
 {
+    // Required
     public $ContractID;
     public $DatePurchased;
     public $EndDate;
-    public $InvoiceNumber;
     public $IsPaid;
-    public $PaymentNumber;
-    public $PaymentType;
     public $PerTicketRate;
     public $StartDate;
-    public $Status;
     public $TicketsPurchased;
+
+    // Optional
+    public $InvoiceNumber;
+    public $PaymentNumber;
+    public $PaymentType;
+    public $Status;
     public $TicketsUsed;
 }

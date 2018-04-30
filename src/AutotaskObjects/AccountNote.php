@@ -3,9 +3,12 @@ namespace ATWS\AutotaskObjects;
 
 class AccountNote extends Entity
 {
+    // Required
     public $AccountID;
     public $ActionType;
     public $AssignedResourceID;
+
+    // Optional
     public $CompletedDateTime;
     public $ContactID;
     public $EndDateTime;
