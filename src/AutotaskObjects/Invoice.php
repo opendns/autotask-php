@@ -14,7 +14,6 @@ class Invoice extends Entity
     public $CreatorResourceID;
     public $DueDate;
     public $FromDate;
-    public $InvoiceDateTime;
     public $InvoiceEditorTemplateID;
     public $InvoiceNumber;
     public $InvoiceTotal;
