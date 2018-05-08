@@ -30,6 +30,5 @@ class InvoiceTemplate extends Entity
     public $CoveredByRecurringServiceFixedPricePerTicketContractLabel;
     public $CurrencyNegativeFormat;
     public $CurrencyPositiveFormat;
-    public $DateFormat;
     public $RateCostExpression;
 }

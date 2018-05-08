@@ -16,3 +16,4 @@ class ContractServiceUnit extends Entity
     public $InternalCurrencyPrice;
     public $Price;
     public $VendorAccountID;
+}

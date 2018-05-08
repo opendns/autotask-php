@@ -51,7 +51,6 @@ class InstalledProduct extends Entity
     public $NumberOfUsers;
     public $ParentInstalledProductID;
     public $PerUseCost;
-    public $ProductID;
     public $ReferenceNumber;
     public $ReferenceTitle;
     public $SerialNumber;
