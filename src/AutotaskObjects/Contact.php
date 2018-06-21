@@ -10,6 +10,7 @@ class Contact extends Entity
     public $LastName;
 
     // Optional
+    public $AccountPhysicalLocationID;
     public $AdditionalAddressInformation;
     public $AddressLine;
     public $AddressLine1;
@@ -25,11 +26,11 @@ class Contact extends Entity
     public $EMailAddress3;
     public $Extension;
     public $ExternalID;
-    public $FacebookURL;
+    public $FacebookUrl;
     public $FaxNumber;
     public $LastActivityDate;
     public $LastModifiedDate;
-    public $LinkedInURL;
+    public $LinkedInUrl;
     public $MiddleInitial;
     public $MobilePhone;
     public $NamePrefix;
@@ -44,6 +45,6 @@ class Contact extends Entity
     public $State;
     public $SurveyOptOut;
     public $Title;
-    public $TwitterURL;
+    public $TwitterUrl;
     public $ZipCode;
 }

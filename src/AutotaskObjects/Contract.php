@@ -15,6 +15,7 @@ class Contract extends Entity
 
 
     // Optional
+    public $BusinessDivisionSubdivisionID;
     public $Compliance;
     public $ContactID;
     public $ContactName;

@@ -11,10 +11,12 @@ class Ticket extends Entity
     public $Title;
 
     // Optional
+    public $AccountPhysicalLocationID;
     public $AEMAlertID;
     public $AllocationCodeID;
     public $AssignedResourceID;
     public $AssignedResourceRoleID;
+    public $BusinessDivisionSubdivisionID;
     public $ChangeApprovalBoard;
     public $ChangeApprovalStatus;
     public $ChangeApprovalType;
@@ -23,6 +25,7 @@ class Ticket extends Entity
     public $ChangeInfoField3;
     public $ChangeInfoField4;
     public $ChangeInfoField5;
+    public $CompletedByResourceID;
     public $CompletedDate;
     public $ContactID;
     public $ContractID;
@@ -30,6 +33,7 @@ class Ticket extends Entity
     public $ContractServiceID;
     public $CreateDate;
     public $CreatorResourceID;
+    public $CreatorType;
     public $Description;
     public $EstimatedHours;
     public $ExternalID;
@@ -41,6 +45,8 @@ class Ticket extends Entity
     public $InstalledProductID;
     public $IssueType;
     public $LastActivityDate;
+    public $LastActivityPersonType;
+    public $LastActivityResourceID;
     public $LastCustomerNotificationDateTime;
     public $LastCustomerVisibleActivityDateTime;
     public $MonitorID;

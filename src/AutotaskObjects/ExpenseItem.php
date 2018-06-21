@@ -27,6 +27,8 @@ class ExpenseItem extends Entity
     public $PurchaseOrderNumber;
     public $ReceiptAmount;
     public $Reimbursable;
+    public $ReimbursementAmount;
+    public $ReimbursementCurrencyReimbursementAmount;
     public $Rejected;
     public $TaskID;
     public $TicketID;

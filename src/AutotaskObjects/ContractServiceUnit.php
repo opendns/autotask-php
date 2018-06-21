@@ -12,7 +12,9 @@ class ContractServiceUnit extends Entity
 
     // Optional
     public $ApproveAndPostDate;
+    public $ContractServiceID;
     public $Cost;
     public $InternalCurrencyPrice;
     public $Price;
     public $VendorAccountID;
+}

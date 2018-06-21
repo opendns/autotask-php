@@ -12,10 +12,14 @@ class ExpenseReport extends Entity
     public $AmountDue;
     public $ApprovedDate;
     public $ApproverID;
+    public $BusinessDivisionSubdivisionID;
     public $CashAdvanceAmount;
     public $DepartmentNumber;
     public $ExpenseTotal;
     public $QuickBooksReferenceNumber;
+    public $ReimbursementCurrencyAmountDue;
+    public $ReimbursementCurrencyCashAdvanceAmount;
+    public $ReimbursementCurrencyID;
     public $RejectionReason;
     public $Status;
     public $Submit;

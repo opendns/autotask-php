@@ -20,7 +20,5 @@ class AllocationCode extends Entity
     public $Taxable;
     public $TaxCategoryID;
     public $Type;
-    public $UnitCost;
-    public $UnitPrice;
     public $UseType;
 }

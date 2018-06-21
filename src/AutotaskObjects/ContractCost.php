@@ -17,7 +17,6 @@ class ContractCost extends Entity
     public $Billed;
     public $ContractServiceBundleID;
     public $ContractServiceID;
-    public $CostType;
     public $CreateDate;
     public $CreatorResourceID;
     public $Description;
