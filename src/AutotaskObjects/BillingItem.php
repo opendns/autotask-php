@@ -13,6 +13,7 @@ class BillingItem extends Entity
     public $AccountManagerWhenApprovedID;
     public $AllocationCodeID;
     public $ApprovedTime;
+    public $BusinessDivisionSubdivisionID;
     public $ContractCostID;
     public $ContractID;
     public $Description;

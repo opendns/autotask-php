@@ -18,8 +18,10 @@ class Opportunity extends Entity
     public $AdvancedField5;
     public $AssessmentScore;
     public $Barriers;
+    public $BusinessDivisionSubdivisionID;
     public $ClosedDate;
     public $ContactID;
+    public $DateStamp;
     public $HelpNeeded;
     public $LastActivity;
     public $LeadReferral;

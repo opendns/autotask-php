@@ -10,6 +10,7 @@ class InstalledProduct extends Entity
     public $ProductID;
 
     // Optional
+    public $AccountPhysicalLocationID;
     public $AEMDeviceAuditArchitectureID;
     public $AEMDeviceAuditDescription;
     public $AEMDeviceAuditDeviceTypeID;
@@ -39,7 +40,29 @@ class InstalledProduct extends Entity
     public $AEMOpenAlertCount;
     public $ContactID;
     public $ContractID;
+    public $ContractServiceBundleID;
+    public $ContractServiceID;
     public $CreateDate;
+    public $DattoAvailableKilobytes;
+    public $DattoDeviceMemoryMegabytes;
+    public $DattoDrivesErrors;
+    public $DattoHostname;
+    public $DattoInternalIP;
+    public $DattoKernelVersionID;
+    public $DattoLastCheckInDateTime;
+    public $DattoNICSpeedKilobitsPerSecond;
+    public $DattoNumberOfAgents;
+    public $DattoNumberOfDrives;
+    public $DattoNumberOfVolumes;
+    public $DattoOffsiteUsedBytes;
+    public $DattoOSVersionID;
+    public $DattoPercentageUsed;
+    public $DattoProtectedKilobytes;
+    public $DattoRemoteIP;
+    public $DattoSerialNumber;
+    public $DattoUptimeSeconds;
+    public $DattoUsedKilobytes;
+    public $DattoZFSVersionID;
     public $DailyCost;
     public $HourlyCost;
     public $InstalledByContactID;

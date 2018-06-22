@@ -9,6 +9,7 @@ class ServiceCall extends Entity
     public $StartDateTime;
 
     // Optional
+    public $AccountPhysicalLocationID;
     public $CancelationNoticeHours;
     public $CanceledByResource;
     public $CanceledDateTime;

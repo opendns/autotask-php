@@ -7,14 +7,14 @@ class AccountNote extends Entity
     public $AccountID;
     public $ActionType;
     public $AssignedResourceID;
+    public $EndDateTime;
+    public $StartDateTime;
 
     // Optional
     public $CompletedDateTime;
     public $ContactID;
-    public $EndDateTime;
     public $LastModifiedDate;
     public $Name;
     public $Note;
     public $OpportunityID;
-    public $StartDateTime;
 }

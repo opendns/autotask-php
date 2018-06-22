@@ -18,6 +18,7 @@ class Account extends Entity
     public $AlternativePhone1;
     public $AlternatePhone2;
     public $AssetValue;
+    public $BillToAccountPhysicalLocationID;
     public $BillToAdditionalAddressInformation;
     public $BillToAddress1;
     public $BillToAddress2;

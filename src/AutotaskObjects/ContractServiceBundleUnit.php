@@ -12,6 +12,7 @@ class ContractServiceBundleUnit extends Entity
 
     // Optional
     public $ApproveAndPostDate;
+    public $ContractServiceBundleID;
     public $Cost;
     public $InternalCurrencyPrice;
     public $Price;

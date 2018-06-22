@@ -13,6 +13,7 @@ class Project extends Entity
     // Optional
     public $ActualBilledHours;
     public $ActualHours;
+    public $BusinessDivisionSubdivisionID;
     public $ChangeOrdersBudget;
     public $ChangeOrdersRevenue;
     public $CompanyOwnerResourceID;
