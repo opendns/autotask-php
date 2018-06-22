@@ -11,7 +11,7 @@ class BusinessLocation extends Entity
     public $TimeZoneID;
 
     // Optional
-    public $AdditionalAddressInformation;
+    public $AdditionalAddressInfo;
     public $Address1;
     public $Address2;
     public $City;
