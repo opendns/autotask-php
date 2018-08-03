@@ -9,7 +9,7 @@ $username = '<YOUR USERNAME>';
 $password = '<YOUR PASSWORD>';
 
 // If you have an integration code, enter it here.
-// If you dont, comment out the 3rd to last line of htis file.
+// If you dont, comment out the 3rd to last line of this file.
 $integrationCode = '<YOUR INTEGRATION CODE>';
 
 $ticket = new ATWS\AutotaskObjects\Ticket();
