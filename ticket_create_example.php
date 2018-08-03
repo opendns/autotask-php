@@ -8,11 +8,15 @@ require_once __DIR__ . '/src/autoload.php';
 $username = '<YOUR USERNAME>';
 $password = '<YOUR PASSWORD>';
 
+// If you have an integration code, enter it here.
+// If you dont, comment out the 3rd to last line of this file.
+$integrationCode = '<YOUR INTEGRATION CODE>';
+
 $ticket = new ATWS\AutotaskObjects\Ticket();
 // Set required fields
 $ticket->id= 0;     // Set to 0 for create, or a ticket id for update
 $ticket->AccountID = ;
-$ticket->DueDateTime = '2015-12-17';
+$ticket->DueDateTime = '2018-12-17';
 $ticket->Title = 'Test Ticket';
 $ticket->Status = 1;
 $ticket->Priority = 1;
@@ -38,5 +42,6 @@ $authOpts = array(
 );
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
 $client = new ATWS\Client($wsdl, $authOpts);
+$client->setIntegrationCode($integrationCode);
 
 print_r($client->create($ticket));

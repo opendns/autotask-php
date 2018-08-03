@@ -133,6 +133,19 @@ class Client extends \SoapClient
         parent::__construct($wsdl, $soapOpts);
     }
 
+    public function setIntegrationCode($code)
+    {
+        $header = new \SOAPHeader(
+            'http://autotask.net/ATWS/v1_5/',
+            'AutotaskIntegrations',
+            array(
+                'IntegrationCode' => $code,
+            )
+        );
+
+        $this->__setSoapHeaders($header);
+    }
+
     public function getZoneInfo($username)
     {
         $zoneInfoObject = new AutotaskObjects\ZoneInfo($username);
