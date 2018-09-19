@@ -63,6 +63,7 @@ class Ticket extends Entity
     public $ResolvedDueDateTime;
     public $ServiceLevelAgreementHasBeenMet;
     public $ServiceLevelAgreementID;
+    public $ServiceLevelAgreementPausedNextEventHours;
     public $Source;
     public $SubIssueType;
     public $TicketCategory;

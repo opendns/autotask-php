@@ -48,6 +48,7 @@ class Account extends Entity
     public $QuoteEmailMessageID;
     public $QuoteTemplateID;
     public $SICCode;
+    public $SurveyAccountRating;
     public $State;
     public $StockMarket;
     public $StockSymbol;
