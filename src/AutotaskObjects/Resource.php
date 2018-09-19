@@ -36,6 +36,7 @@ class Resource extends Entity
     public $OfficePhone;
     public $Password;
     public $Suffix;
+    public $SurveyResourceRating;
     public $TimeFormat;
     public $Title;
     public $TravelAvailabilityPct;

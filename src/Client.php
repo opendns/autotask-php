@@ -6,8 +6,10 @@ class Client extends \SoapClient
 {
     public static $classMap = array(
         'Account'                           => 'ATWS\AutotaskObjects\Account',
+        'AccountAlert'                      => 'ATWS\AutotaskObjects\AccountAlert',
         'AccountLocation'                   => 'ATWS\AutotaskObjects\AccountLocation',
         'AccountNote'                       => 'ATWS\AutotaskObjects\AccountNote',
+        'AccountPhysicalLocation'           => 'ATWS\AutotaskObjects\AccountPhysicalLocation',
         'AccountTeam'                       => 'ATWS\AutotaskObjects\AccountTeam',
         'AccountToDo'                       => 'ATWS\AutotaskObjects\AccountToDo',
         'ActionType'                        => 'ATWS\AutotaskObjects\ActionType',
@@ -29,17 +31,25 @@ class Client extends \SoapClient
         'AutotaskIntegrations'              => 'ATWS\AutotaskObjects\AutotaskIntegrations',
         'BillingItem'                       => 'ATWS\AutotaskObjects\BillingItem',
         'BillingItemApprovalLevel'          => 'ATWS\AutotaskObjects\BillingItemApprovalLevel',
+        'BusinessDivision'                  => 'ATWS\AutotaskObjects\BusinessDivision',
+        'BusinessDivisionSubdivision'       => 'ATWS\AutotaskObjects\BusinessDivisionSubdivision',
+        'BusinessDivisionSubdivisionResource' => 'ATWS\AutotaskObjects\BusinessDivisionSubdivisionResource',
+        'BusinessLocation'                  => 'ATWS\AutotaskObjects\BusinessLocation',
+        'BusinessSubdivision'               => 'ATWS\AutotaskObjects\BusinessSubdivision',
         'ChangeRequestLink'                 => 'ATWS\AutotaskObjects\ChangeRequestLink',
+        'ClassificationIcon'                => 'ATWS\AutotaskObjects\ClassificationIcon',
         'ClientPortalUser'                  => 'ATWS\AutotaskObjects\ClientPortalUser',
         'Contact'                           => 'ATWS\AutotaskObjects\Contact',
         'Contract'                          => 'ATWS\AutotaskObjects\Contract',
         'ContractBlock'                     => 'ATWS\AutotaskObjects\ContractBlock',
         'ContractCost'                      => 'ATWS\AutotaskObjects\ContractCost',
+        'ContractExclusionAllocationCode'   => 'ATWS\AutotaskObjects\ContractExclusionAllocationCode',
         'ContractFactor'                    => 'ATWS\AutotaskObjects\ContractFactor',
         'ContractMilestone'                 => 'ATWS\AutotaskObjects\ContractMilestone',
         'ContractNote'                      => 'ATWS\AutotaskObjects\ContractNote',
         'ContractRate'                      => 'ATWS\AutotaskObjects\ContractRate',
         'ContractRetainer'                  => 'ATWS\AutotaskObjects\ContractRetainer',
+        'ContractRoleCost'                  => 'ATWS\AutotaskObjects\ContractRoleCost',
         'ContractService'                   => 'ATWS\AutotaskObjects\ContractService',
         'ContractServiceAdjustment'         => 'ATWS\AutotaskObjects\ContractServiceAdjustment',
         'ContractServiceBundle'             => 'ATWS\AutotaskObjects\ContractServiceBundle',
@@ -50,6 +60,7 @@ class Client extends \SoapClient
         'Country'                           => 'ATWS\AutotaskObjects\Country',
         'CreateAttachment'                  => 'ATWS\AutotaskObjects\CreateAttachment',
         'CreateAttachmentResponse'          => 'ATWS\AutotaskObjects\CreateAttachmentResponse',
+        'Currency'                          => 'ATWS\AutotaskObjects\Currency',
         'createResponse'                    => 'ATWS\AutotaskObjects\CreateResponse',
         'deleteResponse'                    => 'ATWS\AutotaskObjects\DeleteResponse',
         'Department'                        => 'ATWS\AutotaskObjects\Department',
@@ -65,7 +76,11 @@ class Client extends \SoapClient
         'GetAttachmentResponse'             => 'ATWS\AutotaskObjects\GetAttachmentResponse',
         'getUDFInfo'                        => 'ATWS\AutotaskObjects\UDFParam',
         'getUDFInfoResponse'                => 'ATWS\AutotaskObjects\UDFInfoResponse',
+        'Holiday'                           => 'ATWS\AutotaskObjects\Holiday',
+        'HolidaySet'                        => 'ATWS\AutotaskObjects\HolidaySet',
         'InstalledProduct'                  => 'ATWS\AutotaskObjects\InstalledProduct',
+        'InstalledProductType'              => 'ATWS\AutotaskObjects\InstalledProductType',
+        'InstalledProductTypeUdfAssociation'=> 'ATWS\AutotaskObjects\InstalledProductTypeUdfAssociation',
         'InternalLocation'                  => 'ATWS\AutotaskObjects\InternalLocation',
         'InventoryItem'                     => 'ATWS\AutotaskObjects\InventoryItem',
         'InventoryItemSerialNumber'         => 'ATWS\AutotaskObjects\InventoryItemSerialNumber',
@@ -74,15 +89,23 @@ class Client extends \SoapClient
         'Invoice'                           => 'ATWS\AutotaskObjects\Invoice',
         'InvoiceMarkup'                     => 'ATWS\AutotaskObjects\InvoiceMarkup',
         'InvoiceTemplate'                   => 'ATWS\AutotaskObjects\InvoiceTemplate',
+        'NotificationHistory'               => 'ATWS\AutotaskObjects\NotificationHistory',
         'Opportunity'                       => 'ATWS\AutotaskObjects\Opportunity',
         'PaymentTerm'                       => 'ATWS\AutotaskObjects\PaymentTerm',
         'Phase'                             => 'ATWS\AutotaskObjects\Phase',
         'PickListValue'                     => 'ATWS\AutotaskObjects\PickListValue',
+        'PriceListMaterialCode'             => 'ATWS\AutotaskObjects\PriceListMaterialCode',
+        'PriceListProduct'                  => 'ATWS\AutotaskObjects\PriceListProduct',
+        'PriceListRole'                     => 'ATWS\AutotaskObjects\PriceListRole',
+        'PriceListService'                  => 'ATWS\AutotaskObjects\PriceListService',
+        'PriceListServiceBundle'            => 'ATWS\AutotaskObjects\PriceListServiceBundle',
+        'PriceListWorkTypeModifierEntity'   => 'ATWS\AutotaskObjects\PriceListWorkTypeModifierEntity',
         'Product'                           => 'ATWS\AutotaskObjects\Product',
         'ProductVendor'                     => 'ATWS\AutotaskObjects\ProductVendor',
         'Project'                           => 'ATWS\AutotaskObjects\Project',
         'ProjectCost'                       => 'ATWS\AutotaskObjects\ProjectCost',
         'ProjectNote'                       => 'ATWS\AutotaskObjects\ProjectNote',
+        'PurchaseApproval'                  => 'ATWS\AutotaskObjects\PurchaseApproval',
         'PurchaseOrder'                     => 'ATWS\AutotaskObjects\PurchaseOrder',
         'PurchaseOrderItem'                 => 'ATWS\AutotaskObjects\PurchaseOrderItem',
         'PurchaseOrderReceive'              => 'ATWS\AutotaskObjects\PurchaseOrderReceive',
@@ -90,8 +113,13 @@ class Client extends \SoapClient
         'Quote'                             => 'ATWS\AutotaskObjects\Quote',
         'QuoteItem'                         => 'ATWS\AutotaskObjects\QuoteItem',
         'QuoteLocation'                     => 'ATWS\AutotaskObjects\QuoteLocation',
+        'QuoteTemplate'                     => 'ATWS\AutotaskObjects\QuoteTemplate',
         'Resource'                          => 'ATWS\AutotaskObjects\Resource',
         'ResourceRole'                      => 'ATWS\AutotaskObjects\ResourceRole',
+        'ResourceRoleDepartment'            => 'ATWS\AutotaskObjects\ResourceRoleDepartment',
+        'ResourceRoleQueue'                 => 'ATWS\AutotaskObjects\ResourceRoleQueue',
+        'ResourceServiceDeskRole'           => 'ATWS\AutotaskObjects\ResourceServiceDeskRole',
+        'ResourceSkill'                     => 'ATWS\AutotaskObjects\ResourceSkill',
         'Role'                              => 'ATWS\AutotaskObjects\Role',
         'SalesOrder'                        => 'ATWS\AutotaskObjects\SalesOrder',
         'Service'                           => 'ATWS\AutotaskObjects\Service',
@@ -102,6 +130,13 @@ class Client extends \SoapClient
         'ServiceCallTaskResource'           => 'ATWS\AutotaskObjects\ServiceCallTaskResource',
         'ServiceCallTicket'                 => 'ATWS\AutotaskObjects\ServiceCallTicket',
         'ServiceCallTicketResource'         => 'ATWS\AutotaskObjects\ServiceCallTicketResource',
+        'ServiceLevelAgreementResults'      => 'ATWS\AutotaskObjects\ServiceLevelAgreementResults',
+        'ShippingType'                      => 'ATWS\AutotaskObjects\ShippingType',
+        'Skill'                             => 'ATWS\AutotaskObjects\Skill',
+        'Subscription'                      => 'ATWS\AutotaskObjects\Subscription',
+        'SubscriptionPeriod'                => 'ATWS\AutotaskObjects\SubscriptionPeriod',
+        'Survey'                            => 'ATWS\AutotaskObjects\Survey',
+        'SurveyResults'                     => 'ATWS\AutotaskObjects\SurveyResults',
         'ShippingType'                      => 'ATWS\AutotaskObjects\ShippingType',
         'Task'                              => 'ATWS\AutotaskObjects\Task',
         'TaskNote'                          => 'ATWS\AutotaskObjects\TaskNote',
@@ -111,7 +146,11 @@ class Client extends \SoapClient
         'TaxCategory'                       => 'ATWS\AutotaskObjects\TaxCategory',
         'TaxRegion'                         => 'ATWS\AutotaskObjects\TaxRegion',
         'Ticket'                            => 'ATWS\AutotaskObjects\Ticket',
+        'TicketAdditionalContact'           => 'ATWS\AutotaskObjects\TicketAdditionalContact',
+        'TicketCategory'                    => 'ATWS\AutotaskObjects\TicketCategory',
+        'TicketCategoryFieldDefaults'       => 'ATWS\AutotaskObjects\TicketCategoryFieldDefaults',
         'TicketChangeRequestApproval'       => 'ATWS\AutotaskObjects\TicketChangeRequestApproval',
+        'TicketChecklistItem'               => 'ATWS\AutotaskObjects\TicketChecklistItem',
         'TicketCost'                        => 'ATWS\AutotaskObjects\TicketCost',
         'TicketNote'                        => 'ATWS\AutotaskObjects\TicketNote',
         'TicketSecondaryResource'           => 'ATWS\AutotaskObjects\TicketSecondaryResource',
@@ -119,6 +158,7 @@ class Client extends \SoapClient
         'UserDefinedField'                  => 'ATWS\AutotaskObjects\UserDefinedField',
         'UserDefinedFieldDefinition'        => 'ATWS\AutotaskObjects\UserDefinedFieldDefinition',
         'UserDefinedFieldListItem'          => 'ATWS\AutotaskObjects\UserDefinedFieldListItem',
+        'WorkTypeModifier'                  => 'ATWS\AutotaskObjects\WorkTypeModifier',
     );
 
     // @codeCoverageIgnoreStart
@@ -157,7 +197,7 @@ class Client extends \SoapClient
         $params = new AutotaskObjects\CreateParam($obj);
         return $this->_call('create', array($params));
     }
-    
+
     public function bulkCreate(array $objs)
     {
         if (count($objs) > 200) {
@@ -172,15 +212,15 @@ class Client extends \SoapClient
             }
         }
         return $this->_call('create', array($createObjs));
-    }    
+    }
 
     public function update(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\UpdateParam($obj);
         return $this->_call('update', array($params));
     }
-    
-    public function bulkUpdate(array $objs) 
+
+    public function bulkUpdate(array $objs)
     {
         if (count($objs) > 200) {
             throw new \Exception('You can only execute a bulk update on a max of 200 objects per request');
@@ -259,7 +299,7 @@ class Client extends \SoapClient
     {
         return $this->_call('getThresholdAndUsageInfo');
     }
-    
+
     public function getInvoiceMarkup($invoiceId, $type)
     {
         $invoiceMarkup = new AutotaskObjects\InvoiceMarkup();

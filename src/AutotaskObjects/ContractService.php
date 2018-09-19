@@ -14,5 +14,6 @@ class ContractService extends Entity
     public $InternalCurrencyUnitPrice;
     public $InternalDescription;
     public $InvoiceDescription;
+    public $UnitCost;
     public $UnitPrice;
 }
