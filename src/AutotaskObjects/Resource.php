@@ -10,6 +10,7 @@ class Resource extends Entity
     public $FirstName;
     public $HireDate;
     public $LastName;
+    public $LicenseType;
     public $LocationID;
     public $NumberFormat;
     public $PayrollType;
