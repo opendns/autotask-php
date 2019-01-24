@@ -32,8 +32,10 @@ class Ticket extends Entity
     public $ContractServiceBundleID;
     public $ContractServiceID;
     public $CreateDate;
+    public $CreateDateTime;
     public $CreatorResourceID;
     public $CreatorType;
+    public $CurrentServiceThermometerRating;
     public $Description;
     public $EstimatedHours;
     public $ExternalID;
@@ -52,6 +54,7 @@ class Ticket extends Entity
     public $MonitorID;
     public $MonitorTypeID;
     public $OpportunityId;
+    public $PreviousServiceThermometerRating;
     public $ProblemTicketId;
     public $ProjectID;
     public $PurchaseOrderNumber;
@@ -64,6 +67,7 @@ class Ticket extends Entity
     public $ServiceLevelAgreementHasBeenMet;
     public $ServiceLevelAgreementID;
     public $ServiceLevelAgreementPausedNextEventHours;
+    public $ServiceThermometerTemperature;
     public $Source;
     public $SubIssueType;
     public $TicketCategory;

@@ -12,7 +12,6 @@ class BillingItem extends Entity
     public $AccountID;
     public $AccountManagerWhenApprovedID;
     public $AllocationCodeID;
-    public $ApprovedTime;
     public $BusinessDivisionSubdivisionID;
     public $ContractCostID;
     public $ContractID;
@@ -33,6 +32,8 @@ class BillingItem extends Entity
     public $LineItemID;
     public $MilestoneID;
     public $OurCost;
+    public $PostedDate;
+    public $PostedOnTime;
     public $ProjectCostID;
     public $ProjectID;
     public $PurchaseOrderNumber;
