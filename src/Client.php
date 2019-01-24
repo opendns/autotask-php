@@ -1,9 +1,12 @@
 <?php
 namespace ATWS;
+
 use \ATWS\AutotaskObjects;
 
 class Client extends \SoapClient
 {
+    protected $version;
+
     public static $classMap = array(
         'Account'                           => 'ATWS\AutotaskObjects\Account',
         'AccountAlert'                      => 'ATWS\AutotaskObjects\AccountAlert',
@@ -162,7 +165,7 @@ class Client extends \SoapClient
     );
 
     // @codeCoverageIgnoreStart
-    public function __construct($wsdl, $soapOpts = array())
+    public function __construct($wsdl, $soapOpts = array(), $integrationCode = null)
     {
         foreach (static::$classMap as $external => $internal) {
             if (!isset($soapOpts['classmap'][$external])) {
@@ -170,13 +173,19 @@ class Client extends \SoapClient
             }
         }
 
+        $parts = explode('/', $wsdl);
+        $this->version = $parts[4];
+
+        if (!is_null($integrationCode)) {
+            $this->setIntegrationCode($integrationCode);
+        }
         parent::__construct($wsdl, $soapOpts);
     }
 
     public function setIntegrationCode($code)
     {
         $header = new \SOAPHeader(
-            'http://autotask.net/ATWS/v1_5/',
+            'http://autotask.net/ATWS/v' . str_replace('.', '_', $this->version) .'/',
             'AutotaskIntegrations',
             array(
                 'IntegrationCode' => $code,
@@ -205,10 +214,10 @@ class Client extends \SoapClient
         }
         $createObjs = null;
         foreach ($objs as $obj) {
-            if (!$createObjs){
-               $createObjs = new AutotaskObjects\CreateParam($obj);
+            if (!$createObjs) {
+                $createObjs = new AutotaskObjects\CreateParam($obj);
             } else {
-               $createObjs->Entities[] = $obj;
+                $createObjs->Entities[] = $obj;
             }
         }
         return $this->_call('create', array($createObjs));
@@ -310,6 +319,10 @@ class Client extends \SoapClient
 
     public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
+        if (strpos($action, 'getZoneInfo') === false && $this->version >= 1.6 && empty($this->__default_headers[0]->data['IntegrationCode'])) {
+            throw new ATWSException('Integration code required with this version of the API.');
+        }
+
         return parent::__doRequest($request, $location, $action, $version, $one_way);
     }
 
