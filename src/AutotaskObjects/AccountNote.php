@@ -13,6 +13,9 @@ class AccountNote extends Entity
     // Optional
     public $CompletedDateTime;
     public $ContactID;
+    public $CreateDateTime;
+    public $ImpersonatorCreatorResourceID;
+    public $ImpersonatorUpdaterResourceID;
     public $LastModifiedDate;
     public $Name;
     public $Note;

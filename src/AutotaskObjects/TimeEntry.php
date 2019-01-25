@@ -22,6 +22,8 @@ class TimeEntry extends Entity
     public $EndDateTime;
     public $HoursToBill;
     public $HoursWorked;
+    public $ImpersonatorCreatorResourceID;
+    public $ImpersonatorUpdaterResourceID;
     public $InternalAllocationCodeID;
     public $InternalNotes;
     public $LastModifiedDateTime;

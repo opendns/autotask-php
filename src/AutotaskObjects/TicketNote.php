@@ -11,6 +11,9 @@ class TicketNote extends Entity
     public $Title;
 
     // Optional
+    public $CreateDateTime;
     public $CreatorResourceID;
+    public $ImpersonatorCreatorResourceID;
+    public $ImpersonatorUpdaterResourceID;
     public $LastActivityDate;
 }
