@@ -45,7 +45,57 @@ you will have full access to the autotask-php client.
 
 # Usage
 
-## Fetch your zone WSDL
+Supports both current versions of the Autotask's API; v1.6 and v1.5.
+
+## Version 1.6
+
+Starting with version 1.6, Autotask only allows 'API User' type and all calls must include an integration code in the header. Please refer to Autotask's Web Services documentation in Autotask's help center for setting up the API User account and generating the integration code.
+
+You can set your WSDL file or use the auto detect (https://webservices.autotask.net/atservices/1.6/atws.wsdl)
+
+You can set the integration code with you instantiate your client or after the fact. On every API call, the client will check if the version is 1.6 and confirm the integration code is set (expect on getZoneInfo()). If one is not found, it will throw and error.
+
+### Fetch your zone WSDL and setting your integration code (instantiation process)
+
+```php
+// This code is designed to find your exact wsdl location.
+// If you already know your zone's wsdl URL, you can skip
+// this step.
+$username = 'admin@happymsp.biz';
+$password = 'VeryVeryVeryVerySecurePassword';
+$authWsdl = 'https://webservices.autotask.net/atservices/1.6/atws.wsdl';
+$integrationCode = '27-character ID';
+$opts = array('trace' => 1);
+$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$zoneInfo = $client->getZoneInfo($username);
+
+print_r($zoneInfo);
+```
+
+### Fetch your zone WSDL then setting your integration code
+
+```php
+// This code is designed to find your exact wsdl location.
+// If you already know your zone's wsdl URL, you can skip
+// this step.
+$username = 'admin@happymsp.biz';
+$password = 'VeryVeryVeryVerySecurePassword';
+$authWsdl = 'https://webservices.autotask.net/atservices/1.6/atws.wsdl';
+$opts = array('trace' => 1);
+$client = new ATWS\Client($authWsdl, $opts);
+$integrationCode = '27-character ID';
+$client->setIntegrationCode($integrationCode);
+$zoneInfo = $client->getZoneInfo($username);
+
+print_r($zoneInfo);
+```
+
+## Version 1.5
+Any Autotask user account with the 'Can login to Web Services API' permission can connect via this version of the API.
+
+You can set your WSDL file or use the auto detect (https://webservices.autotask.net/atservices/1.5/atws.wsdl)
+
+### Fetch your zone WSDL
 
 ```php
 // This code is designed to find your exact wsdl location.
