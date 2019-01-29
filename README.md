@@ -111,6 +111,65 @@ $zoneInfo = $client->getZoneInfo($username);
 print_r($zoneInfo);
 ```
 
+## Resource Impersonation
+Make sure you read the API documentation to enable and set the permissions.
+
+When calling the setResourceImpersonation() method. It will replace the existing SOAP header with the integration code and the resource to impersonation. Allowing you to change the resource impersonation without the need of instantiating a new client.
+
+When the instantiating the client, if you did not include the integration code and you call the setResourceImpersonation() method, it would throw an error 'Integration code required when using resource impersonation.' To resolve, call method setIntegrationCode('27-character ID') to set the integration code then you can call setResourceImpersonation().
+
+```php
+$authOpts = array(
+    'login' => $username,
+    'password' => $password,
+    'trace' => 1,   // Allows us to debug by getting the XML requests sent
+);
+$integrationCode = '27-character ID';
+$wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
+$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+
+// Instantiate an Account Note object and assign values
+$accountNote = new ATWS\AutotaskObjects\AccountNote('Contact');
+$accountNote->AccountID = 12345678;
+$accountNote->ActionType = 1;
+$accountNote->AssignedResourceID = 12345678;
+$accountNote->EndDateTime = "2019-01-28T18:18:00";
+$accountNote->id = 0;
+$accountNote->Note = "Resource Impersonation Test";
+$accountNote->StartDateTime = "2019-01-28T18:18:00";
+$result = $client->setResourceImpersonation(87654321)->create($accountNote);
+
+// Print the results of the account note creation
+print_r($result);
+```
+
+Or you can call the setResourceImpersonation() method then call create() or update().
+
+```php
+$authOpts = array(
+    'login' => $username,
+    'password' => $password,
+    'trace' => 1,   // Allows us to debug by getting the XML requests sent
+);
+$integrationCode = '27-character ID';
+$wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
+$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$client->setResourceImpersonation(87654321);
+
+// Instantiate an Account Note object and assign values
+$accountNote = new ATWS\AutotaskObjects\AccountNote('Contact');
+$accountNote->AccountID = 12345678;
+$accountNote->ActionType = 1;
+$accountNote->AssignedResourceID = 12345678;
+$accountNote->EndDateTime = "2019-01-28T18:18:00";
+$accountNote->id = 0;
+$accountNote->Note = "Resource Impersonation Test";
+$accountNote->StartDateTime = "2019-01-28T18:18:00";
+$result = $client->create($accountNote);
+
+// Print the results of the account note creation
+print_r($result);
+```
 
 ## Search Contacts
 ```php
