@@ -112,7 +112,15 @@ print_r($zoneInfo);
 ```
 
 ## Resource Impersonation
-Make sure you read the API documentation to enable and set the permissions.
+Your API-only user can impersonate resources on Account Notes, Contract Notes, Project Notes, Task Notes, Ticket Notes, and Time Entries. So, when notes and time entries are added to Autotask by users using an integration with Autotask, the user's name (not the API user's) appears as the author.
+
+### Requirements
+* Integration users need to provide the <ImpersonateAsResourceID> tag in the AutotaskIntegrations SOAP header.
+* Both the integration user and the API-only user must have security level permission to add or edit the time entry.
+* The integration user's security level must allow the resource to be impersonated.
+* The API-only user's security level must allow impersonation on the entity type.
+
+For more details on impersonation security levels, refer to [Resource Impersonation]( https://ww5.autotask.net/help/Content/AdminSetup/1FeaturesSettings/ResourcesUsers/Security/System_Security_Settings.htm#Resource_Impersonation).
 
 When calling the setResourceImpersonation() method. It will replace the existing SOAP header with the integration code and the resource to impersonation. Allowing you to change the resource impersonation without the need of instantiating a new client.
 
