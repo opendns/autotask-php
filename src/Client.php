@@ -6,6 +6,7 @@ use \ATWS\AutotaskObjects;
 class Client extends \SoapClient
 {
     protected $version;
+    protected $integrationCode;
 
     public static $classMap = array(
         'Account'                           => 'ATWS\AutotaskObjects\Account',
@@ -180,6 +181,7 @@ class Client extends \SoapClient
         $parts = explode('/', $wsdl);
         $this->version = $parts[4];
 
+        $this->integrationCode = $integrationCode;
         if (!is_null($integrationCode)) {
             $this->setIntegrationCode($integrationCode);
         }
@@ -188,6 +190,7 @@ class Client extends \SoapClient
 
     public function setIntegrationCode($code)
     {
+        $this->integrationCode = $code;
         $header = new \SOAPHeader(
             'http://autotask.net/ATWS/v' . str_replace('.', '_', $this->version) .'/',
             'AutotaskIntegrations',
@@ -197,6 +200,23 @@ class Client extends \SoapClient
         );
 
         $this->__setSoapHeaders($header);
+    }
+
+    public function setResourceImpersonation(String $resourceId)
+    {
+        if (is_null($this->integrationCode)) {
+            throw new ATWSException('Integration code required when using resource impersonation.');
+        }
+        $header = new \SOAPHeader(
+            'http://autotask.net/ATWS/v' . str_replace('.', '_', $this->version) .'/',
+            'AutotaskIntegrations',
+            array(
+                'IntegrationCode' => $this->integrationCode,
+                'ImpersonateAsResourceID' => $resourceId
+            )
+        );
+        $this->__setSoapHeaders($header);
+        return $this;
     }
 
     public function getZoneInfo($username)

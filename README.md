@@ -45,7 +45,57 @@ you will have full access to the autotask-php client.
 
 # Usage
 
-## Fetch your zone WSDL
+Supports both current versions of the Autotask's API; v1.6 and v1.5.
+
+## Version 1.6
+
+Starting with version 1.6, Autotask only allows 'API User' type and all calls must include an integration code in the header. Please refer to Autotask's Web Services documentation in Autotask's help center for setting up the API User account and generating the integration code.
+
+You can set your WSDL file or use the auto detect (https://webservices.autotask.net/atservices/1.6/atws.wsdl)
+
+You can set the integration code with you instantiate your client or after the fact. On every API call, the client will check if the version is 1.6 and confirm the integration code is set (expect on getZoneInfo()). If one is not found, it will throw and error.
+
+### Fetch your zone WSDL and setting your integration code (instantiation process)
+
+```php
+// This code is designed to find your exact wsdl location.
+// If you already know your zone's wsdl URL, you can skip
+// this step.
+$username = 'admin@happymsp.biz';
+$password = 'VeryVeryVeryVerySecurePassword';
+$authWsdl = 'https://webservices.autotask.net/atservices/1.6/atws.wsdl';
+$integrationCode = '27-character ID';
+$opts = array('trace' => 1);
+$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$zoneInfo = $client->getZoneInfo($username);
+
+print_r($zoneInfo);
+```
+
+### Fetch your zone WSDL then setting your integration code
+
+```php
+// This code is designed to find your exact wsdl location.
+// If you already know your zone's wsdl URL, you can skip
+// this step.
+$username = 'admin@happymsp.biz';
+$password = 'VeryVeryVeryVerySecurePassword';
+$authWsdl = 'https://webservices.autotask.net/atservices/1.6/atws.wsdl';
+$opts = array('trace' => 1);
+$client = new ATWS\Client($authWsdl, $opts);
+$integrationCode = '27-character ID';
+$client->setIntegrationCode($integrationCode);
+$zoneInfo = $client->getZoneInfo($username);
+
+print_r($zoneInfo);
+```
+
+## Version 1.5
+Any Autotask user account with the 'Can login to Web Services API' permission can connect via this version of the API.
+
+You can set your WSDL file or use the auto detect (https://webservices.autotask.net/atservices/1.5/atws.wsdl)
+
+### Fetch your zone WSDL
 
 ```php
 // This code is designed to find your exact wsdl location.
@@ -61,6 +111,73 @@ $zoneInfo = $client->getZoneInfo($username);
 print_r($zoneInfo);
 ```
 
+## Resource Impersonation
+Your API-only user can impersonate resources on Account Notes, Contract Notes, Project Notes, Task Notes, Ticket Notes, and Time Entries. So, when notes and time entries are added to Autotask by users using an integration with Autotask, the user's name (not the API user's) appears as the author.
+
+### Requirements
+* Integration users need to provide the <ImpersonateAsResourceID> tag in the AutotaskIntegrations SOAP header.
+* Both the integration user and the API-only user must have security level permission to add or edit the time entry.
+* The integration user's security level must allow the resource to be impersonated.
+* The API-only user's security level must allow impersonation on the entity type.
+
+For more details on impersonation security levels, refer to [Resource Impersonation]( https://ww5.autotask.net/help/Content/AdminSetup/1FeaturesSettings/ResourcesUsers/Security/System_Security_Settings.htm#Resource_Impersonation).
+
+When calling the setResourceImpersonation() method. It will replace the existing SOAP header with the integration code and the resource to impersonation. Allowing you to change the resource impersonation without the need of instantiating a new client.
+
+When the instantiating the client, if you did not include the integration code and you call the setResourceImpersonation() method, it would throw an error 'Integration code required when using resource impersonation.' To resolve, call method setIntegrationCode('27-character ID') to set the integration code then you can call setResourceImpersonation().
+
+```php
+$authOpts = array(
+    'login' => $username,
+    'password' => $password,
+    'trace' => 1,   // Allows us to debug by getting the XML requests sent
+);
+$integrationCode = '27-character ID';
+$wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
+$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+
+// Instantiate an Account Note object and assign values
+$accountNote = new ATWS\AutotaskObjects\AccountNote('Contact');
+$accountNote->AccountID = 12345678;
+$accountNote->ActionType = 1;
+$accountNote->AssignedResourceID = 12345678;
+$accountNote->EndDateTime = "2019-01-28T18:18:00";
+$accountNote->id = 0;
+$accountNote->Note = "Resource Impersonation Test";
+$accountNote->StartDateTime = "2019-01-28T18:18:00";
+$result = $client->setResourceImpersonation(87654321)->create($accountNote);
+
+// Print the results of the account note creation
+print_r($result);
+```
+
+Or you can call the setResourceImpersonation() method then call create() or update().
+
+```php
+$authOpts = array(
+    'login' => $username,
+    'password' => $password,
+    'trace' => 1,   // Allows us to debug by getting the XML requests sent
+);
+$integrationCode = '27-character ID';
+$wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
+$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$client->setResourceImpersonation(87654321);
+
+// Instantiate an Account Note object and assign values
+$accountNote = new ATWS\AutotaskObjects\AccountNote('Contact');
+$accountNote->AccountID = 12345678;
+$accountNote->ActionType = 1;
+$accountNote->AssignedResourceID = 12345678;
+$accountNote->EndDateTime = "2019-01-28T18:18:00";
+$accountNote->id = 0;
+$accountNote->Note = "Resource Impersonation Test";
+$accountNote->StartDateTime = "2019-01-28T18:18:00";
+$result = $client->create($accountNote);
+
+// Print the results of the account note creation
+print_r($result);
+```
 
 ## Search Contacts
 ```php
