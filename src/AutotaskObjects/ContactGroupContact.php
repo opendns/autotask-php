@@ -7,4 +7,5 @@ class ContactGroupContact extends Entity
     // Required
     public $ContactGroupID;
     public $ContactID ;
+    public $id ;
 }
