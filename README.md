@@ -53,7 +53,7 @@ Starting with version 1.6, Autotask only allows 'API User' type and all calls mu
 
 You can set your WSDL file or use the auto detect (https://webservices.autotask.net/atservices/1.6/atws.wsdl)
 
-You can set the integration code with you instantiate your client or after the fact. On every API call, the client will check if the version is 1.6 and confirm the integration code is set (expect on getZoneInfo()). If one is not found, it will throw and error.
+You can set the integration code with you instantiate your client or after the fact. On every API call, the client will check if the version is 1.6 and confirm the integration code is set (except on getZoneInfo()). If one is not found, it will throw and error.
 
 ### Fetch your zone WSDL and setting your integration code (instantiation process)
 
