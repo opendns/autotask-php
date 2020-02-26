@@ -134,7 +134,7 @@ $authOpts = array(
 );
 $integrationCode = '27-character ID';
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$client = new ATWS\Client($authWsdl, $authOpts, $integrationCode);
 
 // Instantiate an Account Note object and assign values
 $accountNote = new ATWS\AutotaskObjects\AccountNote('Contact');
@@ -161,7 +161,7 @@ $authOpts = array(
 );
 $integrationCode = '27-character ID';
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$client = new ATWS\Client($authWsdl, $authOpts, $integrationCode);
 $client->setResourceImpersonation(87654321);
 
 // Instantiate an Account Note object and assign values
