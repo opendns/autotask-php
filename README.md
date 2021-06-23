@@ -42,6 +42,9 @@ you will have full access to the autotask-php client.
 3. add a ```require_once``` call to include `src/autoload.php`
    to get access to the Client.
 
+```php
+require_once __DIR__ . '/src/autoload.php';
+```
 
 # Usage
 
@@ -134,7 +137,7 @@ $authOpts = array(
 );
 $integrationCode = '27-character ID';
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$client = new ATWS\Client($wsdl, $authOpts, $integrationCode);
 
 // Instantiate an Account Note object and assign values
 $accountNote = new ATWS\AutotaskObjects\AccountNote('Contact');
@@ -161,7 +164,7 @@ $authOpts = array(
 );
 $integrationCode = '27-character ID';
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-$client = new ATWS\Client($authWsdl, $opts, $integrationCode);
+$client = new ATWS\Client($wsdl, $authOpts, $integrationCode);
 $client->setResourceImpersonation(87654321);
 
 // Instantiate an Account Note object and assign values
@@ -187,7 +190,8 @@ $authOpts = array(
     'trace' => 1,   // Allows us to debug by getting the XML requests sent
 );
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-$client = new ATWS\Client($wsdl, $authOpts);
+$client = new ATWS\Client($wsdl, $authOpts, $integrationCode);  // for version 1.6
+// $client = new ATWS\Client($wsdl, $authOpts);   // for version 1.5 with no integration code
 
 // Instantiate a Query object, designed to make complex
 // queries simple.
@@ -218,7 +222,8 @@ $authOpts = array(
     'trace' => 1,   // Allows us to debug by getting the XML requests sent
 );
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-$client = new ATWS\Client($wsdl, $authOpts);
+$client = new ATWS\Client($wsdl, $authOpts, $integrationCode);  // for version 1.6
+// $client = new ATWS\Client($wsdl, $authOpts);   // for version 1.5 with no integration code
 
 // Instantiate a Query object, designed to make complex
 // queries simple.
@@ -261,7 +266,8 @@ $authOpts = array(
     'trace' => 1,   // Allows us to debug by getting the XML requests sent
 );
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-$client = new ATWS\Client($wsdl, $authOpts);
+$client = new ATWS\Client($wsdl, $authOpts, $integrationCode);  // for version 1.6
+// $client = new ATWS\Client($wsdl, $authOpts);   // for version 1.5 with no integration code
 
 // Instantiate a Query object, designed to make complex
 // queries simple.
