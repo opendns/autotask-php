@@ -204,7 +204,7 @@ class Client extends \SoapClient
         $this->__setSoapHeaders($header);
     }
 
-    public function setResourceImpersonation(String $resourceId)
+    public function setResourceImpersonation($resourceId)
     {
         if (is_null($this->integrationCode)) {
             throw new ATWSException('Integration code required when using resource impersonation.');
