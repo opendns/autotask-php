@@ -12,6 +12,10 @@
         {
             "name": "Miles Evenson",
             "email": "miles@opendns.com"
+        },
+        {
+            "name": "Ryan Neufeld",
+            "email": "rneufeld@cisco.com"
         }
     ],
     "require": {
