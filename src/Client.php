@@ -347,7 +347,7 @@ class Client extends \SoapClient
     {
         if (strpos($action, 'getZoneInfo') === false &&
             $this->version >= 1.6 &&
-            empty($this->__default_headers[0]->data['IntegrationCode'])
+            empty($this->integrationCode)
         ) {
             throw new ATWSException('Integration code required with this version of the API.');
         }
