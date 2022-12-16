@@ -343,21 +343,21 @@ class Client extends \SoapClient
         return $this->_call('GetInvoiceMarkup', array($invoiceMarkup));
     }
 
-    public function __doRequest($request, $location, $action, $version, $one_way = 0)
+    public function __doRequest($request, $location, $action, $version, $oneWay = 0): string
     {
         if (strpos($action, 'getZoneInfo') === false &&
             $this->version >= 1.6 &&
-            empty($this->__default_headers[0]->data['IntegrationCode'])
+            empty($this->integrationCode)
         ) {
             throw new ATWSException('Integration code required with this version of the API.');
         }
 
-        return parent::__doRequest($request, $location, $action, $version, $one_way);
+        return parent::__doRequest($request, $location, $action, $version, $oneWay);
     }
 
     private function _call($method, $params = array())
     {
         return $this->__soapCall($method, $params);
     }
-    // @codeCoerageIgnoreEnd
+    // @codeCoverageIgnoreEnd
 }
