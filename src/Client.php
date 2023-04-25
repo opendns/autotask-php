@@ -343,7 +343,7 @@ class Client extends \SoapClient
         return $this->_call('GetInvoiceMarkup', array($invoiceMarkup));
     }
 
-    public function __doRequest($request, $location, $action, $version, $oneWay = 0): string
+    public function __doRequest($request, $location, $action, $version, $oneWay = 0): ?string
     {
         if (strpos($action, 'getZoneInfo') === false &&
             $this->version >= 1.6 &&
