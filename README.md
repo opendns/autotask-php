@@ -1,3 +1,5 @@
+# This library is not actively maintained or monitored.
+
 # Introduction
 
 autotask-php is designed to make it easier to interact
