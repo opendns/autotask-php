@@ -3,6 +3,7 @@ namespace ATWS\AutotaskObjects;
 
 class Query
 {
+    public $entity;
     public $clauses;
     public $query;
     public $queryField;

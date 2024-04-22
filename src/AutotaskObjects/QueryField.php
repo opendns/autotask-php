@@ -3,6 +3,7 @@ namespace ATWS\AutotaskObjects;
 
 class QueryField
 {
+    public $isUDF;
     public $name;
     public $expressions;
 
