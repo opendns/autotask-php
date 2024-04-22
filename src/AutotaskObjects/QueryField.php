@@ -3,6 +3,7 @@ namespace ATWS\AutotaskObjects;
 
 class QueryField
 {
+    public $isUDF;
     public $name;
     public $expressions;
 
@@ -10,7 +11,7 @@ class QueryField
     {
         $this->name = $name;
         $this->isUDF = $isUDF;
-        $this->expressions = array();
+        $this->expressions = [];
     }
 
     public function addExpression($op, $value)

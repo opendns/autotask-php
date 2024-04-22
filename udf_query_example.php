@@ -13,17 +13,17 @@ $password = '<YOUR PASSWORD>';
 // End Edit Region
 
 $authWsdl = 'https://webservices.autotask.net/atservices/1.5/atws.wsdl';
-$opts = array('trace' => 1);
+$opts = ['trace' => 1];
 $client = new ATWS\Client($authWsdl, $opts);
 $zoneInfo = $client->getZoneInfo($username);
 
 print_r($zoneInfo);
 
-$authOpts = array(
-    'login' => $username,
+$authOpts = [
+    'login'    => $username,
     'password' => $password,
-    'trace' => 1,   // Allows us to debug by getting the XML requests sent
-);
+    'trace'    => 1,   // Allows us to debug by getting the XML requests sent
+];
 $wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
 $client = new ATWS\Client($wsdl, $authOpts);
 

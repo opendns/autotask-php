@@ -3,6 +3,7 @@ namespace ATWS\AutotaskObjects;
 
 class Query
 {
+    public $entity;
     public $clauses;
     public $query;
     public $queryField;
@@ -11,7 +12,7 @@ class Query
     public function __construct($entity)
     {
         $this->entity = $entity;
-        $this->clauses = array();
+        $this->clauses = [];
     }
 
     public function addField(QueryField $field)

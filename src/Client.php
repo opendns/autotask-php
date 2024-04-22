@@ -8,7 +8,7 @@ class Client extends \SoapClient
     protected $version;
     protected $integrationCode;
 
-    public static $classMap = array(
+    public static $classMap = [
         'Account'                           => 'ATWS\AutotaskObjects\Account',
         'AccountAlert'                      => 'ATWS\AutotaskObjects\AccountAlert',
         'AccountLocation'                   => 'ATWS\AutotaskObjects\AccountLocation',
@@ -169,10 +169,10 @@ class Client extends \SoapClient
         'UserDefinedFieldDefinition'        => 'ATWS\AutotaskObjects\UserDefinedFieldDefinition',
         'UserDefinedFieldListItem'          => 'ATWS\AutotaskObjects\UserDefinedFieldListItem',
         'WorkTypeModifier'                  => 'ATWS\AutotaskObjects\WorkTypeModifier',
-    );
+    ];
 
     // @codeCoverageIgnoreStart
-    public function __construct($wsdl, $soapOpts = array(), $integrationCode = null)
+    public function __construct($wsdl, $soapOpts = [], $integrationCode = null)
     {
         foreach (static::$classMap as $external => $internal) {
             if (!isset($soapOpts['classmap'][$external])) {
@@ -196,9 +196,7 @@ class Client extends \SoapClient
         $header = new \SOAPHeader(
             'http://autotask.net/ATWS/v' . str_replace('.', '_', $this->version) .'/',
             'AutotaskIntegrations',
-            array(
-                'IntegrationCode' => $code,
-            )
+            ['IntegrationCode' => $code]
         );
 
         $this->__setSoapHeaders($header);
@@ -212,10 +210,7 @@ class Client extends \SoapClient
         $header = new \SOAPHeader(
             'http://autotask.net/ATWS/v' . str_replace('.', '_', $this->version) .'/',
             'AutotaskIntegrations',
-            array(
-                'IntegrationCode' => $this->integrationCode,
-                'ImpersonateAsResourceID' => $resourceId
-            )
+            ['IntegrationCode' => $this->integrationCode, 'ImpersonateAsResourceID' => $resourceId]
         );
         $this->__setSoapHeaders($header);
         return $this;
@@ -224,13 +219,13 @@ class Client extends \SoapClient
     public function getZoneInfo($username)
     {
         $zoneInfoObject = new AutotaskObjects\ZoneInfo($username);
-        return $this->_call('getZoneInfo', array($zoneInfoObject));
+        return $this->_call('getZoneInfo', [$zoneInfoObject]);
     }
 
     public function create(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\CreateParam($obj);
-        return $this->_call('create', array($params));
+        return $this->_call('create', [$params]);
     }
 
     public function bulkCreate(array $objs)
@@ -246,13 +241,13 @@ class Client extends \SoapClient
                 $createObjs->Entities[] = $obj;
             }
         }
-        return $this->_call('create', array($createObjs));
+        return $this->_call('create', [$createObjs]);
     }
 
     public function update(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\UpdateParam($obj);
-        return $this->_call('update', array($params));
+        return $this->_call('update', [$params]);
     }
 
     public function bulkUpdate(array $objs)
@@ -261,7 +256,7 @@ class Client extends \SoapClient
             throw new \Exception('You can only execute a bulk update on a max of 200 objects per request');
         }
         $updateObjs = null;
-        $calls = array();
+        $calls = [];
         foreach ($objs as $obj) {
             if (!$updateObjs) {
                 $updateObjs = new AutotaskObjects\UpdateParam($obj);
@@ -269,13 +264,13 @@ class Client extends \SoapClient
                 $updateObjs->Entities[] = $obj;
             }
         }
-        return $this->_call('update', array($updateObjs));
+        return $this->_call('update', [$updateObjs]);
     }
 
     public function delete(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\DeleteParam($obj);
-        return $this->_call('delete', array($params));
+        return $this->_call('delete', [$params]);
     }
 
     public function bulkDelete(array $objs)
@@ -284,7 +279,7 @@ class Client extends \SoapClient
             throw new \Exception('You can only execute a bulk delete on a max of 200 objects per request');
         }
         $deleteObjs = null;
-        $calls = array();
+        $calls = [];
         foreach ($objs as $obj) {
             if (!$deleteObjs) {
                 $deleteObjs = new AutotaskObjects\DeleteParam($obj);
@@ -292,37 +287,37 @@ class Client extends \SoapClient
                 $deleteObjs->Entities[] = $obj;
             }
         }
-        return $this->_call('delete', array($deleteObjs));
+        return $this->_call('delete', [$deleteObjs]);
     }
 
     public function GetAttachment(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\GetAttachment($obj);
-        return $this->_call('GetAttachment', array($params));
+        return $this->_call('GetAttachment', [$params]);
     }
 
     public function CreateAttachment(AutotaskObjects\Entity $obj)
     {
         $params = new AutotaskObjects\CreateAttachment($obj);
-        return $this->_call('CreateAttachment', array($params));
+        return $this->_call('CreateAttachment', [$params]);
     }
 
     public function query(AutotaskObjects\Query $obj)
     {
         $obj->asXml();
-        return $this->_call('query', array($obj));
+        return $this->_call('query', [$obj]);
     }
 
     public function getUDFInfo($type)
     {
         $param = new AutotaskObjects\UDFParam($type);
-        return $this->_call('getUDFInfo', array($param));
+        return $this->_call('getUDFInfo', [$param]);
     }
 
     public function getFieldInfo($type)
     {
         $fieldInfo = new AutotaskObjects\FieldInfo($type);
-        return $this->_call('getFieldInfo', array($fieldInfo));
+        return $this->_call('getFieldInfo', [$fieldInfo]);
     }
 
     public function getEntityInfo()
@@ -340,7 +335,7 @@ class Client extends \SoapClient
         $invoiceMarkup = new AutotaskObjects\InvoiceMarkup();
         $invoiceMarkup->InvoiceId = (int)$invoiceId;
         $invoiceMarkup->Format = $type;
-        return $this->_call('GetInvoiceMarkup', array($invoiceMarkup));
+        return $this->_call('GetInvoiceMarkup', [$invoiceMarkup]);
     }
 
     public function __doRequest($request, $location, $action, $version, $oneWay = 0): ?string
@@ -355,7 +350,7 @@ class Client extends \SoapClient
         return parent::__doRequest($request, $location, $action, $version, $oneWay);
     }
 
-    private function _call($method, $params = array())
+    private function _call($method, $params = [])
     {
         return $this->__soapCall($method, $params);
     }

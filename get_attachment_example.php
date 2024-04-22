@@ -1,4 +1,4 @@
- <?php
+<?php
 require_once __DIR__ . '/autoload.php';
 
 use \ATWS;
@@ -7,13 +7,13 @@ use \ATWS\AutotaskObjects;
 $username = 'INSERT USERNAME HERE';
 $password = 'INSERT PASSWORD HERE';
 
-$postAuthOpts = array(
-    'login' => $username,
+$postAuthOpts = [
+    'login'    => $username,
     'password' => $password,
-    'trace' => 1,   // Allows us to debug by getting the XML requests sent
-);
+    'trace'    => 1,   // Allows us to debug by getting the XML requests sent
+];
 
-$opts = array('trace' => 1);
+$opts = ['trace' => 1];
 $authWsdl = 'https://webservices.autotask.net/atservices/1.5/atws.wsdl';
 $client = new ATWS\Client($authWsdl, $opts);
 $zoneInfo = $client->getZoneInfo($username);
