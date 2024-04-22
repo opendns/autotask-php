@@ -7,7 +7,7 @@ class QueryFieldExpression
     public $op;
     public $value;
 
-    public static $validOperators = array(
+    public static $validOperators = [
         'equals',
         'notequal',
         'greaterthan',
@@ -23,7 +23,7 @@ class QueryFieldExpression
         'like',
         'notlike',
         'soundslike',
-    );
+    ];
 
     public function __construct($op, $value)
     {

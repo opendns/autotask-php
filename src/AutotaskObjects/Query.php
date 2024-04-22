@@ -12,7 +12,7 @@ class Query
     public function __construct($entity)
     {
         $this->entity = $entity;
-        $this->clauses = array();
+        $this->clauses = [];
     }
 
     public function addField(QueryField $field)

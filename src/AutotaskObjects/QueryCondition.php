@@ -8,7 +8,7 @@ class QueryCondition
 
     public function __construct($operator = null)
     {
-        $this->clauses = array();
+        $this->clauses = [];
 
         $this->operator = $operator;
 
